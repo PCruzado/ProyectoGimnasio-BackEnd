@@ -13,12 +13,12 @@ const puerto = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json()); 
-
+app.use('/api/usuarios', require('./routes/usserRoutes'));
 
 app.get('/', (req, res) => {
     res.status(200).json({ 
         estado: 'Exitoso',
-        mensaje: '¡Servidor del Gimnasio funcionando al 100%!' 
+        mensaje: '¡Servidor del Gimnasio funcionando!' 
     });
 });
 
