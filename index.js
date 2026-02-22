@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const conectarDB = require('./config/db'); 
+const conectarDB = require('./config/db');
 
 dotenv.config();
 
@@ -17,9 +17,9 @@ app.use('/api/usuarios', require('./routes/usserRoutes'));
 app.use('/api/clases', require('./routes/classRoutes'));
 
 app.get('/', (req, res) => {
-    res.status(200).json({ 
+    res.status(200).json({
         estado: 'Exitoso',
-        mensaje: '¡Servidor del Gimnasio funcionando!' 
+        mensaje: '¡Servidor del Gimnasio funcionando!'
     });
 });
 
