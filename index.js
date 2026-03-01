@@ -12,8 +12,9 @@ const puerto = process.env.PORT || 4000;
 
 
 app.use(cors());
-app.use(express.json());
-app.use('/api/usuarios', require('./routes/userRoutes'));
+app.use(express.json()); 
+app.use('/api/usuarios', require('./routes/usserRoutes'));
+app.use('/api/clases', require('./routes/classRoutes'));
 
 app.get('/', (req, res) => {
     res.status(200).json({
