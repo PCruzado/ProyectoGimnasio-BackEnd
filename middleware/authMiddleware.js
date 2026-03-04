@@ -39,4 +39,12 @@ const admin = (req, res, next) => {
       });
   }
 };
-module.exports = { protect, admin };
+
+const superAdmin = (req, res, next) => {
+    if (req.user && req.user.rol === 'super-administrador') {
+        next(); 
+    } else {
+        res.status(403).json({ mensaje: 'Acceso denegado. Solo el Super-Administrador puede hacer esto' });
+    }
+};
+module.exports = { protect, admin,superAdmin };
