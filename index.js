@@ -11,10 +11,10 @@ const app = express();
 const puerto = process.env.PORT || 4000;
 
 
-app.use(cors());
 app.use(express.json());
 app.use('/api/usuarios', require('./routes/userRoutes'));
 app.use('/api/clases', require('./routes/classRoutes'));
+app.use(cors({origin: 'https://proyectogimnasiog1.netlify.app/'}));
 
 app.get('/', (req, res) => {
     res.status(200).json({
