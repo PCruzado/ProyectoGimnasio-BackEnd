@@ -84,9 +84,39 @@ const loginUsuario = async (req, res) => {
     }
 };
 
+const actualizarRolUsuario = async (req, res) => {
+    try {
+        const { nuevoRol } = req.body;
+
+        const rolesPermitidos = ['usuario', 'entrenador', 'administrador', 'super-administrador'];
+        if (!rolesPermitidos.includes(nuevoRol)) {
+            return res.status(400).json({ mensaje: 'Rol no válido' });
+        }
+
+        const usuarioActualizado = await Usuario.findByIdAndUpdate(
+            req.params.id,
+            { rol: nuevoRol },
+            { new: true }
+        ).select('-contrasena'); 
+
+        if (!usuarioActualizado) {
+            return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+        }
+
+        res.status(200).json({
+            mensaje: `El rol del usuario ha sido actualizado a ${nuevoRol}`,
+            usuario: usuarioActualizado
+        });
+
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error al actualizar el rol', error: error.message });
+    }
+};
+
 module.exports = {
     registrarUsuario,
     loginUsuario,
-    obtenerUsuarios
+    obtenerUsuarios,
+    actualizarRolUsuario
 };
 
