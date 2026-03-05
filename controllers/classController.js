@@ -54,10 +54,37 @@ const borrarClase = async (req, res) => {
     }
 };
 
+const inscribirUsuario = async (req, res) => {
+    try {
+        const clase = await Class.findById(req.params.id);
+        if (!clase) {
+            return res.status(404).json({ mensaje: 'Clase no encontrada' });
+        }
+
+        // Verificar si ya está inscripto
+        if (clase.usuariosInscriptos.includes(req.user._id)) {
+            return res.status(400).json({ mensaje: 'Ya estás inscripto en esta clase' });
+        }
+
+        // Verificar capacidad
+        if (clase.usuariosInscriptos.length >= clase.capacidadMax) {
+            return res.status(400).json({ mensaje: 'La clase está llena' });
+        }
+
+        clase.usuariosInscriptos.push(req.user._id);
+        await clase.save();
+
+        res.status(200).json({ mensaje: 'Inscripción exitosa', clase });
+    } catch (error) {
+        res.status(500).json({ mensaje: 'Error al inscribirse', error: error.message });
+    }
+};
+
 module.exports = {
     obtenerClases,
     obtenerClasePorId,
     crearClase,
     editarClase,
-    borrarClase
+    borrarClase,
+    inscribirUsuario
 };
