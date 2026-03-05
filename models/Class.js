@@ -27,7 +27,7 @@ const classSchema = new mongoose.Schema({
     },
     usuariosInscriptos: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'Usuario'
     }]
 }, {
     timestamps: true 
