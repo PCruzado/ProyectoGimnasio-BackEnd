@@ -11,6 +11,11 @@ const productSchema = new mongoose.Schema({
         required: [true, 'El precio es obligatorio'],
         min: 0
     },
+    categoria: {
+        type: String,
+        required: [true, 'La categoría es obligatoria'],
+        trim: true
+    },
     
     imagen: {
         type: String,
