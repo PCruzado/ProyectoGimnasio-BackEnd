@@ -54,7 +54,12 @@ const registrarUsuario = async (req, res) => {
 
 const obtenerUsuarios = async (req, res) => {
     try {
-        const usuarios = await Usuario.find({}).select('-contrasena');
+        let filtro = {};
+        
+        if (req.user.rol !== 'super-administrador') {
+            filtro = { rol: { $ne: 'super-administrador' } }; 
+        }
+        const usuarios = await Usuario.find(filtro).select('-contrasena');
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error al obtener los usuarios', error: error.message });
