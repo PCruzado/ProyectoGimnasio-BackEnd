@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
+const productoSchema = new mongoose.Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre del producto es obligatorio'],
-        trim: true
+        required: [true, 'El nombre es obligatorio']
     },
     descripcion: {
         type: String,
@@ -13,14 +12,22 @@ const productSchema = new mongoose.Schema({
     precio: {
         type: Number,
         required: [true, 'El precio es obligatorio'],
-        min: 0
+        min: [0, 'El precio no puede ser negativo']
     },
-    imagen: {
+    categoria: {
         type: String,
-        default: 'https://via.placeholder.com/150'
+        enum: ['Suplementos', 'Ropa', 'Accesorios'], 
+        default: 'Accesorios'
+    },
+    stock: {
+        type: Number,
+        default: 0
+    },
+    imagenUrl: {
+        type: String
     }
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Product', productoSchema);
