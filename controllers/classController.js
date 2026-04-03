@@ -3,7 +3,6 @@ const Class = require('../models/Class');
 const obtenerClases = async (req, res) => {
     try {
         const clases = await Clase.find({})
-            .populate('profesor', 'nombre apellido') 
             .populate('usuariosAnotados', 'nombre apellido email'); 
         res.status(200).json(clases);
     } catch (error) {
