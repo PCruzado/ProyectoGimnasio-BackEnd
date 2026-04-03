@@ -46,17 +46,57 @@ npm run dev
 
  Endpoints Principales
 Usuarios
-POST /api/usuarios/registro: Crear una cuenta nueva.
+POST /api/usuarios/registro: Crear una cuenta nueva.(Publico)
 
-POST /api/usuarios/login: Obtener el token de acceso.
+POST /api/usuarios/login: Obtener el token de acceso.(Publico)
 
 GET /api/usuarios: Obtener lista de usuarios (Solo Admin).
 
-Productos y Clases
-GET /api/productos: Ver catálogo completo.
+Productos 
+GET /api/productos: Ver catálogo completo.(Publico)
 
 POST /api/productos: Crear nuevo producto (Solo Admin).
 
 PUT /api/productos/:id: Editar producto existente (Solo Admin).
 
-DELETE /api/productos/:id: Eliminar producto (Solo Admin).
+DELETE /api/productos/:id: Eliminar producto de la base de datos (Solo Admin).
+
+Clases
+GET /api/clases: Ver lista de clases y horarios.(Publico)
+
+POST /api/clases: Crear una clase nueva.(Solo Admin)
+
+PUT /api/clases:id Actualizar datos de una clase.(Solo Admin)
+
+DELETE /api/clases/:id Eliminar una clase de la base de datos.(Solo Admin)
+
+
+Actualización de Clase (PUT)
+
+Ruta: /api/clases/:id
+
+Body requerido (JSON):
+{
+  "nombreClase": "Yoga",
+  "profesor": "Lucía Torres",
+  "fecha": "2026-05-15",
+  "horario": "18:00"
+}
+
+Eliminación de Clase (DELETE)
+
+Ruta: /api/clases/:id
+
+Parámetros: Se requiere el ID de la clase en la URL.
+
+Códigos de Respuesta
+La API responde con los siguientes estados estándar:
+
+Código	      Significado	        Descripción
+200 / 204	   Éxito	        La petición se completó correctamente.
+201	           Creado	        El recurso (Usuario/Producto/Clase) se creó con éxito.
+400	           Bad Request	    Error en los datos enviados o campos obligatorios faltantes.
+401	           Unauthorized	    El token es inválido o no se proporcionó.
+404	           Not Found	    El ID proporcionado no existe en la base de datos.
+500	           Error	        Error interno del servidor o de conexión con la base de datos.
+
