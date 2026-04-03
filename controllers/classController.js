@@ -2,7 +2,7 @@ const Class = require('../models/Class');
 
 const obtenerClases = async (req, res) => {
     try {
-        const clases = await Clase.find({})
+        const clases = await Class.find({})
             .populate('usuariosAnotados', 'nombre apellido email'); 
         res.status(200).json(clases);
     } catch (error) {
@@ -62,12 +62,10 @@ const inscribirUsuario = async (req, res) => {
             return res.status(404).json({ mensaje: 'Clase no encontrada' });
         }
 
-        // Verificar si ya está inscripto
         if (clase.usuariosInscriptos.includes(req.user._id)) {
             return res.status(400).json({ mensaje: 'Ya estás inscripto en esta clase' });
         }
 
-        // Verificar capacidad
         if (clase.usuariosInscriptos.length >= clase.capacidadMax) {
             return res.status(400).json({ mensaje: 'La clase está llena' });
         }
