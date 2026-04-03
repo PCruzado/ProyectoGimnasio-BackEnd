@@ -2,7 +2,9 @@ const Class = require('../models/Class');
 
 const obtenerClases = async (req, res) => {
     try {
-        const clases = await Class.find({}).populate('usuariosInscriptos', 'nombre email');
+        const clases = await Clase.find({})
+            .populate('profesor', 'nombre apellido') 
+            .populate('usuariosAnotados', 'nombre apellido email'); 
         res.status(200).json(clases);
     } catch (error) {
         res.status(500).json({ mensaje: 'Error al obtener las clases', error: error.message });
