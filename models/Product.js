@@ -16,7 +16,7 @@ const productoSchema = new mongoose.Schema({
     },
     categoria: {
         type: String,
-        enum: ['Suplementos', 'Ropa', 'Accesorios'], 
+        enum: ['Suplementos', 'Indumentaria', 'Accesorios', 'Equipamiento'], 
         default: 'Accesorios'
     },
     stock: {
