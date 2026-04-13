@@ -1,3 +1,4 @@
+````markdown
 # ⚙️ Proyecto Gimnasio - BackEnd
 
 API robusta que alimenta el sistema de gestión del gimnasio Rolling Gym. Maneja la autenticación, el registro de usuarios, el catálogo de productos y la administración de las clases.
@@ -17,7 +18,7 @@ Si querés levantar este proyecto en tu computadora, seguí estos pasos:
 1. **Clonar el repositorio:**
    ```bash
    git clone [https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git](https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git)
-
+````
 
 2.  **Ingresar a la carpeta del proyecto:**
 
@@ -31,15 +32,21 @@ Si querés levantar este proyecto en tu computadora, seguí estos pasos:
     npm install
     ```
 
+4.  **Variables de Entorno:** Crea un archivo llamado `.env` en la raíz del proyecto y agregá lo siguiente con tus datos:
 
-4.  **Levantar el servidor de desarrollo:**
+    ```env
+    MONGO_URI=tu_uri_de_mongodb
+    JWT_SECRET=tu_clave_secreta
+    PORT=4000
+    ```
+
+5.  **Levantar el servidor de desarrollo:**
 
     ```bash
     npm run dev
     ```
 
-## 🌐 Endpoints Principales (Resumen)
-
+##  Endpoints Principales (Resumen)
 | Recurso | Rutas Principales | Acceso |
 | :--- | :--- | :--- |
 | **Usuarios** | `POST /api/usuarios/registro` <br> `POST /api/usuarios/login` | Público |
