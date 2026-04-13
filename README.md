@@ -10,7 +10,7 @@ Este proyecto está construido con las siguientes herramientas:
 * **Core:** Node.js y Express
 * **Base de Datos:** MongoDB Atlas y Mongoose
 * **Seguridad y Autenticación:** JWT (JSON Web Token) y CORS
-
+````
 ## 🚀 Instalación y Configuración Local
 
 Si querés levantar este proyecto en tu computadora, seguí estos pasos:
@@ -18,7 +18,7 @@ Si querés levantar este proyecto en tu computadora, seguí estos pasos:
 1. **Clonar el repositorio:**
    ```bash
    git clone [https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git](https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git)
-````
+
 
 2.  **Ingresar a la carpeta del proyecto:**
 
