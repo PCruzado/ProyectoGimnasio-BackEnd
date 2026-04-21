@@ -54,7 +54,8 @@ npm run dev
 | **401** | Unauthorized | El token de autenticación es inválido o no se proporcionó. |
 | **404** | Not Found | El ID proporcionado en la ruta no existe en la base de datos. |
 | **500** | Internal Server Error | Error interno del servidor o falla en la conexión con la base de datos. |
-👥 Equipo de Desarrollo
+
+## 👥 Equipo de Desarrollo
 - Marcos Lautaro Molina
 - Facundo Javier Vera
 - Pablo Cruzado
