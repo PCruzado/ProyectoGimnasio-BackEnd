@@ -46,8 +46,14 @@ npm run dev
 | **DELETE** | `/api/productos/:id` | Elimina un producto por su ID. | Admin |
 
 ### Nota: 
-Para los métodos PUT y DELETE es necesario pasar el ID del recurso por la URL (ej: /api/clases/12345).📡 Códigos de Respuesta HTTPLa API devuelve los siguientes códigos de estado para facilitar el manejo de peticiones desde el Frontend:CódigoSignificadoDescripción200 / 204ÉxitoLa petición se completó correctamente.201CreadoEl recurso se creó con éxito en la base de datos.400Bad RequestError en los datos enviados o faltan campos obligatorios.401UnauthorizedEl token de autenticación es inválido o no se proporcionó.404Not FoundEl ID proporcionado en la ruta no existe en la base de datos.500Internal Server ErrorError interno del servidor o falla en la conexión con la base de datos.
-
+| Código | Significado | Descripción |
+| :---: | :--- | :--- |
+| **200 / 204** | Éxito | La petición se completó correctamente. |
+| **201** | Creado | El recurso se creó con éxito en la base de datos. |
+| **400** | Bad Request | Error en los datos enviados o faltan campos obligatorios. |
+| **401** | Unauthorized | El token de autenticación es inválido o no se proporcionó. |
+| **404** | Not Found | El ID proporcionado en la ruta no existe en la base de datos. |
+| **500** | Internal Server Error | Error interno del servidor o falla en la conexión con la base de datos. |
 👥 Equipo de Desarrollo
 - Marcos Lautaro Molina
 - Facundo Javier Vera
