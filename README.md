@@ -37,7 +37,7 @@ PORT=4000
  ```bash
 npm run dev
  ```
-
+## Ejemplos de Peticiones (Body JSON)
 | Método | Endpoint | Descripción | Acceso |
 | :--- | :--- | :--- | :--- |
 | **GET** | `/api/productos` | Obtiene la lista de todos los productos. | Público |
@@ -45,7 +45,7 @@ npm run dev
 | **PUT** | `/api/productos/:id` | Actualiza los datos de un producto existente. | Admin |
 | **DELETE** | `/api/productos/:id` | Elimina un producto por su ID. | Admin |
 
-### Nota: 
+### Códigos de Respuesta HTTP: 
 | Código | Significado | Descripción |
 | :---: | :--- | :--- |
 | **200 / 204** | Éxito | La petición se completó correctamente. |
