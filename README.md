@@ -26,7 +26,8 @@ cd ProyectoGimnasio-BackEnd
  ```bash
 npm install
  ```
-Variables de Entorno: Crea un archivo llamado .env en la raíz del proyecto y agregá lo siguiente con tus datos (no incluyas tus contraseñas reales al subir a GitHub):
+## Variables de Entorno:
+Crea un archivo llamado .env en la raíz del proyecto y agregá lo siguiente con tus datos (no incluyas tus contraseñas reales al subir a GitHub):
  ```bash
 MONGO_URI=tu_uri_de_mongodb
 JWT_SECRET=tu_clave_secreta
