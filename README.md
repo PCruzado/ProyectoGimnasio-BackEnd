@@ -38,13 +38,14 @@ PORT=4000
 npm run dev
  ```
 
-🌐 Endpoints PrincipalesRecursoRutas PrincipalesAccesoUsuariosPOST /api/usuarios/registroPOST /api/usuarios/loginPúblicoProductosGET /api/productosPOST, PUT, DELETE /api/productos/:idPúblico (GET) / AdminClasesGET /api/clasesPOST, PUT, DELETE /api/clases/:idPúblico (GET) / Admin📝 Ejemplos de Peticiones (Body JSON)Para las peticiones de creación (POST) o actualización (PUT), es necesario enviar los datos en formato JSON.Ejemplo para crear o actualizar una Clase (/api/clases):JSON{ 
-  "nombreClase": "Yoga", 
-  "profesor": "Lucía Torres", 
-  "fecha": "2026-05-15", 
-  "horario": "18:00" 
-}
-Nota: Para los métodos PUT y DELETE es necesario pasar el ID del recurso por la URL (ej: /api/clases/12345).📡 Códigos de Respuesta HTTPLa API devuelve los siguientes códigos de estado para facilitar el manejo de peticiones desde el Frontend:CódigoSignificadoDescripción200 / 204ÉxitoLa petición se completó correctamente.201CreadoEl recurso se creó con éxito en la base de datos.400Bad RequestError en los datos enviados o faltan campos obligatorios.401UnauthorizedEl token de autenticación es inválido o no se proporcionó.404Not FoundEl ID proporcionado en la ruta no existe en la base de datos.500Internal Server ErrorError interno del servidor o falla en la conexión con la base de datos.
+Recurso                                 Rutas Principales                                                  Acceso
+Usuarios,POST        /api/usuarios/registroPOST /api/usuarios/login,                                        Público
+Productos,"GET       /api/productosPOST, PUT, DELETE /api/productos/:id",Público (GET)                      Admin
+Clases,"GET          /api/clasesPOST, PUT, DELETE /api/clases/:id",Público (GET)                            Admin
+
+
+### Nota: 
+Para los métodos PUT y DELETE es necesario pasar el ID del recurso por la URL (ej: /api/clases/12345).📡 Códigos de Respuesta HTTPLa API devuelve los siguientes códigos de estado para facilitar el manejo de peticiones desde el Frontend:CódigoSignificadoDescripción200 / 204ÉxitoLa petición se completó correctamente.201CreadoEl recurso se creó con éxito en la base de datos.400Bad RequestError en los datos enviados o faltan campos obligatorios.401UnauthorizedEl token de autenticación es inválido o no se proporcionó.404Not FoundEl ID proporcionado en la ruta no existe en la base de datos.500Internal Server ErrorError interno del servidor o falla en la conexión con la base de datos.
 
 👥 Equipo de Desarrollo
 - Marcos Lautaro Molina
