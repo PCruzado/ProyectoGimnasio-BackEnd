@@ -1,4 +1,3 @@
-
 # ⚙️ Proyecto Gimnasio - BackEnd
 
 API robusta que alimenta el sistema de gestión del gimnasio Rolling Gym. Maneja la autenticación, el registro de usuarios, el catálogo de productos y la administración de las clases.
@@ -19,43 +18,35 @@ Si querés levantar este proyecto en tu computadora, seguí estos pasos:
    ```bash
    git clone [https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git](https://github.com/PCruzado/ProyectoGimnasio-BackEnd.git)
 
+## Ingresar a la carpeta del proyecto:
+ ```bash
+cd ProyectoGimnasio-BackEnd
+  ```
+## Instalar las dependencias:
+ ```bash
+npm install
+ ```
+Variables de Entorno: Crea un archivo llamado .env en la raíz del proyecto y agregá lo siguiente con tus datos (no incluyas tus contraseñas reales al subir a GitHub):
+ ```bash
+MONGO_URI=tu_uri_de_mongodb
+JWT_SECRET=tu_clave_secreta
+PORT=4000
+ ```
+## Levantar el servidor de desarrollo:
+ ```bash
+npm run dev
+ ```
 
-2.  **Ingresar a la carpeta del proyecto:**
+🌐 Endpoints PrincipalesRecursoRutas PrincipalesAccesoUsuariosPOST /api/usuarios/registroPOST /api/usuarios/loginPúblicoProductosGET /api/productosPOST, PUT, DELETE /api/productos/:idPúblico (GET) / AdminClasesGET /api/clasesPOST, PUT, DELETE /api/clases/:idPúblico (GET) / Admin📝 Ejemplos de Peticiones (Body JSON)Para las peticiones de creación (POST) o actualización (PUT), es necesario enviar los datos en formato JSON.Ejemplo para crear o actualizar una Clase (/api/clases):JSON{ 
+  "nombreClase": "Yoga", 
+  "profesor": "Lucía Torres", 
+  "fecha": "2026-05-15", 
+  "horario": "18:00" 
+}
+Nota: Para los métodos PUT y DELETE es necesario pasar el ID del recurso por la URL (ej: /api/clases/12345).📡 Códigos de Respuesta HTTPLa API devuelve los siguientes códigos de estado para facilitar el manejo de peticiones desde el Frontend:CódigoSignificadoDescripción200 / 204ÉxitoLa petición se completó correctamente.201CreadoEl recurso se creó con éxito en la base de datos.400Bad RequestError en los datos enviados o faltan campos obligatorios.401UnauthorizedEl token de autenticación es inválido o no se proporcionó.404Not FoundEl ID proporcionado en la ruta no existe en la base de datos.500Internal Server ErrorError interno del servidor o falla en la conexión con la base de datos.
 
-    ```bash
-    cd ProyectoGimnasio-BackEnd
-    ```
-
-3.  **Instalar las dependencias:**
-
-    ```bash
-    npm install
-    ```
-
-4.  **Variables de Entorno:** Crea un archivo llamado `.env` en la raíz del proyecto y agregá lo siguiente con tus datos:
-
-    ```env
-    MONGO_URI=tu_uri_de_mongodb
-    JWT_SECRET=tu_clave_secreta
-    PORT=4000
-    ```
-
-5.  **Levantar el servidor de desarrollo:**
-
-    ```bash
-    npm run dev
-    ```
-
-##  Endpoints Principales (Resumen)
-| Recurso | Rutas Principales | Acceso |
-| :--- | :--- | :--- |
-| **Usuarios** | `POST /api/usuarios/registro` <br> `POST /api/usuarios/login` | Público |
-| **Productos** | `GET /api/productos` <br> `POST, PUT, DELETE /api/productos/:id` | Público (GET) / Admin |
-| **Clases** | `GET /api/clases` <br> `POST, PUT, DELETE /api/clases/:id` | Público (GET) / Admin |
-
-## 👥 Equipo de Desarrollo
-
-  * Marcos Lautaro Molina
-  * Facundo Javier Vera
-  * Pablo Cruzado
-  * Nicolas Bulacio
+👥 Equipo de Desarrollo
+- Marcos Lautaro Molina
+- Facundo Javier Vera
+- Pablo Cruzado
+- Nicolas Bulacio
